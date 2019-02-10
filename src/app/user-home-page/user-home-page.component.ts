@@ -51,11 +51,11 @@ export class UserHomePageComponent implements OnInit
 	{
 
 	}
-	
+
 	getUserData()
 	{
 		this.userService.loadUser((success, user_name, counter, nextCounter) => {
-			
+
 			if(success)
 			{
 				this.user.counter = counter;
@@ -65,46 +65,10 @@ export class UserHomePageComponent implements OnInit
 			{
 				// go back to login page
 				let path = '/';
-				
+
 				this.router.navigate([path]);
 			}
 		});
-	}
-
-	getUserData_()
-	{
-		let user: UserInfoModel = this.userService.getUser();
-
-		if(user != null && user.user_name != null)
-		{
-			let headers = new HttpHeaders().set("Authorization", "Bearer " + user.token);
-
-			this.http.get('/api/v1/user/' + user.user_name, {headers: headers}).subscribe((data:any) => {
-
-	       		if(data != null && data.user != null && data.user.user_name != null)
-				{
-					if(data.user.counter > 0 && (user.user_name == data.user.user_name))
-					{
-						//this.user.user_name = this.user_name;
-						this.user.counter = data.user.counter;
-						this.user.nextCounter = data.user.nextCounter;
-					}
-
-					this.userService.setUserData(data.user);
-				}
-				else
-				{
-					console.error("There was an error at loading '/api/v1/user/" + user.user_name + "'");
-				}
-		    });
-		}
-		else
-		{
-			// go back to login page
-			let path = '/';
-
-			this.router.navigate([path]);
-		}
 	}
 
 }

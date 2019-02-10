@@ -78,7 +78,7 @@ export class UserService
 				/* execute a post */
 				if(cb != null)
 		      	{
-		      		cb(data.user);
+		      		cb(true, data.user);
 		      	}
 
 		      	/* set user data into a local cookie */
@@ -89,12 +89,12 @@ export class UserService
 		      	/* set the service as logged in */
 		      	this.bIsLoggedIn = true;
 			}
-
+			
 		}, (error) =>
 		{
 		    if(error.status != 404)
 		    {
-		    	cb(error.error.error);
+		    	cb(false, error.error.error);
 		    }
 			
 		});
@@ -164,6 +164,7 @@ export class UserService
 				else
 				{
 					cb(false, user_name);
+
 					console.error("There was an error at loading '/api/v1/user/" + user_name + "'");
 				}
 		    });
@@ -171,6 +172,7 @@ export class UserService
 		else
 		{
 			cb(false, user_name);
+			
 			console.error("Error incrementing a user. (user_name:" + user_name + ")");
 		}
 	}

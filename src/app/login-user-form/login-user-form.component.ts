@@ -60,13 +60,21 @@ export class UserLoginFormComponent implements OnInit {
   	{
 		  let data: any = Object.assign({}, this.loginForm.value);
 
-      this.userService.login(data, (user) => {
+      this.userService.login(data, (success, user) => {
         
-        let path = '/user/' + user.user_name;
+        if(success == true)
+        {
+          let path = '/user/' + user.user_name;
 
-        this.router.navigate([path]);
+          this.router.navigate([path]);
 
-        this.userService.setUserData(user);
+          this.userService.setUserData(user);
+        }
+        else
+        {
+          this.serviceErrors.password = "Invalid login";
+        }
+
       });
 
       
