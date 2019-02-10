@@ -18,8 +18,12 @@ Run
 for a dev server & a proxy. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Screenshots
+![Login Page][login]
+![User Home Page][user]
+![Increment Action][increment-action]
+![Action Result][incremented-result]
 
-
-
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[login]: https://raw.githubusercontent.com/jsmuster/ang6-jwt-login/master/src/imgs/login-page.png "Login Page"
+[user]: https://raw.githubusercontent.com/jsmuster/ang6-jwt-login/master/src/imgs/user-page.png "User Page"
+[increment-action]: https://raw.githubusercontent.com/jsmuster/ang6-jwt-login/master/src/imgs/increment-action.png "Increment Action"
+[incremented-result]: https://raw.githubusercontent.com/jsmuster/ang6-jwt-login/master/src/imgs/incremented-result.png "Increment Result"
