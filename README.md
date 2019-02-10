@@ -19,7 +19,7 @@ for a dev server & a proxy. Navigate to `http://localhost:4200/`. The app will a
 
 ## API server
 
-The API for this project:
+The API for this project, which needs to be running for this project to function properly:
 https://github.com/jsmuster/ang6-jwt-login-node-api
 
 ## Screenshots
