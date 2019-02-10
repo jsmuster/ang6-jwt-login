@@ -19,16 +19,20 @@ for a dev server & a proxy. Navigate to `http://localhost:4200/`. The app will a
 
 ## Screenshots
 
-User logs into the site:
+User logs into the site
+
 ![Login Page][login]
 
-User lands on a user home page:
+User lands on a user home page
+
 ![User Home Page][user]
 
-User increments a counter:
+User increments a counter
+
 ![Increment Action][increment-action]
 
-Counter incremented:
+Counter incremented
+
 ![Action Result][incremented-result]
 
 [login]: https://raw.githubusercontent.com/jsmuster/ang6-jwt-login/master/src/imgs/login-page.png "Login Page"
