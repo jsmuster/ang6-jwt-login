@@ -31,7 +31,7 @@ User clicks Increment button to increment a counter
 
 ![Increment Action][increment-action]
 
-Counter incremented
+User clicks Confirm button. The counter is incremented
 
 ![Action Result][incremented-result]
 
