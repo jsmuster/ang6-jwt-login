@@ -1,0 +1,38 @@
+<div class="container">
+  <div id="content" class="row">
+    <div class="col-xs-12">
+      	<router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="counterModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Increment</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="row">
+	        <p class="col-xs-12">
+	        	<b>Counter</b>&nbsp;<span>{{counter}}</span>
+			</p>
+		</div>
+		<div class="row">
+	        <p class="col-xs-12">
+	        	<b>Next Counter</b>&nbsp;<span>{{nextCounter}}</span>
+			</p>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="handleOnConfirm($event)" data-dismiss="modal">Confirm</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
