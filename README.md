@@ -17,6 +17,11 @@ Run
 
 for a dev server & a proxy. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## API server
+
+The API for this project:
+https://github.com/jsmuster/ang6-jwt-login-node-api
+
 ## Screenshots
 
 User logs into the site
