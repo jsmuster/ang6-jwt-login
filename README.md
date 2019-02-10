@@ -27,7 +27,7 @@ User lands on a user home page
 
 ![User Home Page][user]
 
-User increments a counter
+User clicks Increment button to increment a counter
 
 ![Increment Action][increment-action]
 
