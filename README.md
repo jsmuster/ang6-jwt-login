@@ -5,6 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Clone this repository locally
 `git clone https://github.com/jsmuster/ang6-jwt-login ng-login`
 
+`cd ng-login`
+
 `npm install`
 
 ## Development server
