@@ -36,7 +36,7 @@ User clicks Increment button to increment a counter
 
 ![Increment Action][increment-action]
 
-User clicks Confirm button. The counter is incremented
+User clicks Confirm button. The counter is incremented via a server service
 
 ![Action Result][incremented-result]
 
