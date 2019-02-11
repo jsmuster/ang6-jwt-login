@@ -89,12 +89,19 @@ export class UserService
 		      	/* set the service as logged in */
 		      	this.bIsLoggedIn = true;
 			}
-			
+
 		}, (error) =>
 		{
-		    if(error.status != 404)
+		    if(error != null && error.status != null && error.status != 404)
 		    {
-		    	cb(false, error.error.error);
+		    	if(error.error != null && error.error.error != null)
+		    	{
+		    		cb(false, error.error.error);
+		    	}
+		    	else
+		    	{
+		    		cb(false, error);
+		    	}
 		    }
 			
 		});
@@ -106,9 +113,7 @@ export class UserService
 		
 		if(user != null && user.user_name != null)
 		{
-			let headers = new HttpHeaders().set("Authorization", "Bearer " + user.token);
-			
-			this.http.get('/api/v1/user/' + user.user_name, {headers: headers}).subscribe((data:any) => {
+			this.http.get('/api/v1/user/login/' + user.user_name).subscribe((data:any) => {
 
 	       		if(data != null && data.user != null && data.user.user_name != null)
 				{
@@ -144,18 +149,13 @@ export class UserService
 		
 		if(user != null && user.token != null)
 		{
-			let headers = new HttpHeaders().set("Authorization", "Bearer " + user.token);
-			
-			this.http.get('/api/v1/user/increment/' + user_name, {headers: headers}).subscribe((data:any) => {
+			this.http.get('/api/v1/user/increment/' + user_name).subscribe((data:any) => {
 				
 	       		if(data != null && data.user != null && data.user.user_name != null)
 				{
 					if(data.user.counter > 0 && (user_name == data.user.user_name))
 					{
 						cb(true, user_name, data.user.counter, data.user.nextCounter);
-
-						// this.counter = data.user.counter;
-						// this.nextCounter = data.user.nextCounter;
 					}
 					
 					/* increment user data */
@@ -172,7 +172,7 @@ export class UserService
 		else
 		{
 			cb(false, user_name);
-			
+
 			console.error("Error incrementing a user. (user_name:" + user_name + ")");
 		}
 	}

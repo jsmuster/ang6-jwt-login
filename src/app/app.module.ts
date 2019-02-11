@@ -8,11 +8,14 @@ import { UserHomePageComponent } from './user-home-page/user-home-page.component
 
 import { Routes, Router, RouterModule, CanActivate, CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { UserService } from './services/user.service';
+import { InterceptService} from './services/intercept.service';
 
 import { UserAuthGuard } from './guards/user.auth.guard';
+
+
 
 /* route configuration */
 const routes: Routes = [
@@ -40,7 +43,12 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [UserService, UserAuthGuard],
+  providers: [UserService, UserAuthGuard, InterceptService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
