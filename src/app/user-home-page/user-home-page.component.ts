@@ -14,7 +14,7 @@ export class UserHomePageComponent implements OnInit
 {
 	private user: UserInfoModel = new UserInfoModel();
 	
-
+	
 	constructor(private http: HttpClient, private route: ActivatedRoute, private userService:UserService, private router:Router) {
 
 		this.subscriber = this.route.params.subscribe(params => {

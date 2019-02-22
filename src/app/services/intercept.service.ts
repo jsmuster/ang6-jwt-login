@@ -43,9 +43,9 @@ export class InterceptService  implements HttpInterceptor {
 
 	// intercept request and add token
   	intercept(request: HttpRequest<any>, next: HttpHandler):Observable<HttpEvent<any>> {
-
+  		
   		let uData = localStorage.getItem("userData");
-
+  		
   		if(uData != null)
   		{
   			let userData = null;
@@ -90,16 +90,11 @@ export class InterceptService  implements HttpInterceptor {
 							})
 						)
 	  			}
-	  			else
-	  			{
-	  				return next.handle(request);
-	  			}
-  			}
-  			else
-  			{
-  				return next.handle(request);
   			}
   		}
+  		
+  		// pass through
+  		return next.handle(request);
     };
   
  
